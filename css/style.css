@@ -1,7 +1,7 @@
 /* configuraciones principales y reset de etiquetas */
 *{
     box-sizing: border-box;
-    max-width: 1440px;
+    max-width: 100%;
 
 
 }
@@ -21,8 +21,8 @@ a{
 
 body {
     margin: 0 auto;
-   
-
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
 /* comenzamos con el header*/
@@ -57,41 +57,65 @@ body {
 
 /* seguimos con el contenido de la pagina principal*/
 
-.opciones {
-    display: flex;
+.opciones article  {
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.articles { 
+    width: 50%;
+    margin-bottom: 10px;
+    display: block;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.opciones article{ 
-    width: 20%;
-    margin-bottom: 30px;
-    display: inline-block;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
 }
 
 
 .portada {
-    width: 100%;
+    width: 500px;
+    height: 725px ; 
+    border-style: groove;
     
 }
+.titulos {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+#titulospelicula {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
  
-img {
-    /* evita que las imágenes sean más grandes que la etiqueta que las contiene, eliminando scrolls horizontales */
-    max-width: 100%;
-  }
+
+/* Comenzamos el footer*/
   
 footer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     background-image: url(../img/pochoclosheader.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    color: black;
+    
 
 }
 
+footer ul {
+    display: flex;
+    justify-content: center;
+padding: 15px;    
+}
 
+footer ul li {
+    padding: 6px;
+}
 
 
 
