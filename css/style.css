@@ -66,22 +66,26 @@ body {
 }
 
 /* seguimos con el contenido de la pagina home*/
-
+.opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
 
 .opciones article  {
 display: flex;
 flex-wrap: wrap;
 flex-direction: row;
-justify-content: space-between;
+justify-content: space-around;
 }
 
 .articles { 
-    width: 50%;
+    display: flex;
+    width: 48%;
     margin-bottom: 10px;
-    display: block;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 10px;
     background-color: rgb(0, 0, 0);
     align-items: center;
@@ -100,8 +104,10 @@ h2 {
     font-size: 50px;
     background-image: url(../img/pochoclosheader.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
     color: black;
+    width: 100%;
+    height: 100px;
 }
 #titulospelicula {
     font-size: 40px;
