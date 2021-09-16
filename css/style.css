@@ -153,7 +153,7 @@ footer ul li {
 
 /* Arrancamos con la pagina de detalle de peliculas */
 
-#titulodetallepelicula {
+.titulodetallepelicula {
     font-size: 40px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
@@ -220,6 +220,32 @@ footer ul li {
     padding-left: 10px;
 }
 
+/* Comenzamos con media queries de la pagina index */
+
+@media (min-width: 1024px) {
+    .articles{
+        width: 20%;
+    }
+    .portada {
+        height: 500px;
+    }
+
+    #chiquitojodon {
+        font-size: 23px;
+    }
+
+    /* Comenzamos con la media queries de la pagina detail-movie y detail-serie */
+   
+    .navdetalles {
+       width: calc(23% - 10px); 
+       margin: 10px;
+    }
+    
+    #emilyjodona {
+        justify-content: flex-start;
+    }
+
+}
 
 
 
