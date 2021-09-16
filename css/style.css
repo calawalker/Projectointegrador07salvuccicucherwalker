@@ -164,15 +164,50 @@ footer ul li {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 40%;
+    width:40%;
     margin-bottom: 10px;
     padding: 0;
     justify-content: center;
-
 }
 
 .articlesdetalle {
+    display: flex;
+    width: 100%;
+    
 }
+
+/* pagina genres */
+
+.sectiongenre {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 auto;
+    align-items: center;
+    
+}
+
+#maingenres{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.colorpeligenre {
+    background-color: rgb(204, 160, 64);
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    border-radius: 100px;
+    
+
+}
+
+
+
+
+
+
 
 
 
