@@ -203,6 +203,9 @@ footer ul li {
     border-radius: 100px;
 }
 
+.titulosgenres {
+    font-size: 40px;
+}
 /* Comenzamos con pagina favorito (tiene mismos estilos que pagina de detalles de movies y series) */
 
 #titulofavorito {
