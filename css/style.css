@@ -244,6 +244,7 @@ footer ul li {
     }
     .portada {
         height: 500px;
+       
     }
 
     #chiquitojodon {
@@ -253,13 +254,11 @@ footer ul li {
     /* Comenzamos con la media queries de la pagina detail-movie y detail-serie */
    
     .navdetalles {
-       width: calc(23% - 10px); 
-       margin: 10px;
+       width: calc(48% - 45px); 
+
     }
+
     
-    #emilyjodona {
-        justify-content: flex-start;
-    }
 
 }
 
