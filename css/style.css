@@ -1,7 +1,6 @@
 /* configuraciones principales y reset de etiquetas */
 *{
     box-sizing: border-box;
-    max-width: 100%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
@@ -38,7 +37,7 @@ p {
     display:flex;
     align-items: center;
     justify-content: space-around;
-    width: 300%;
+    width: 100%;
     flex-direction: row;
     background-image: url(../img/pochoclosheader.jpg);
     background-repeat: no-repeat;
@@ -101,11 +100,12 @@ justify-content: space-around;
 
 
 .portada {
-    width: 500px;
+    /* width: 500px;
     height: 725px ; 
     border-style: groove;
     margin-top: 20px;
-    
+     */
+     width: 100%;
 }
 h2 {
     text-align: center;
@@ -124,8 +124,14 @@ h2 {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
+    
 }
 
+.articles div a{
+    display: inline-block;
+    width: 100%;
+
+}
  
 
 /* Comenzamos el footer*/
@@ -232,7 +238,7 @@ footer ul li {
 
 /* Comenzamos con media queries de la pagina index */
 
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
     .articles{
         width: 20%;
     }
