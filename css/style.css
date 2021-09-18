@@ -91,7 +91,7 @@ justify-content: space-around;
 }
 
 /*div de index*/
-.articles { 
+.divindex { 
     display: flex;
     width: 48%;
     margin-bottom: 10px;
@@ -247,7 +247,7 @@ footer ul li {
 /* Comenzamos con media queries de la pagina index */
 
 @media (min-width: 960px) {
-    .articles{
+    .divindex {
         width: 20%;
     }
     .portada {
@@ -283,11 +283,7 @@ footer ul li {
     }
 
     #chiquitojodon {
-        font-size: 19px;
-    }
-
-    #advengersjodon {
-        font-size: 19px;
+        font-size: 23px;
     }
 
    .searchresultarticle {
