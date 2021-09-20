@@ -84,10 +84,10 @@ p {
 
 /*article de index*/
 .opciones article  {
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /*div de index*/
@@ -273,9 +273,9 @@ footer ul li {
     /* section del favorite*/ 
     .favoritosgeneral {
         display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
     #Soncomoniñosjodon {
