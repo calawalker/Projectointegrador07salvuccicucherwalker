@@ -242,6 +242,10 @@ footer ul li {
     padding-left: 10px;
 }
 
+#novisible {
+    display: none;
+}
+
 
 
 /* Comenzamos con media queries de la pagina index */
