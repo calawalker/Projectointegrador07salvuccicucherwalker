@@ -1,11 +1,10 @@
 /* configuraciones principales y reset de etiquetas */
-*{
+* {
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-
 }
-ul, ol{
+
+ul, ol {
     padding: 0;
     margin: 0;
 }
@@ -14,7 +13,7 @@ li {
     list-style-type: none;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
@@ -23,7 +22,6 @@ body {
     margin: 0 auto;
     background-color: rgb(0, 0, 0);
     color: white;
-    
 }
 
 p {
@@ -82,27 +80,24 @@ p {
     background-color: rgb(0, 0, 0);
 }
 
-/*article de index*/
-.opciones article  {
+/*div de index*/
+.opciones div  {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
 }
 
-/*div de index*/
-.divindex { 
-    display: flex;
+/*article de index*/
+.divindex {
     width: 48%;
     margin-bottom: 10px;
-    flex-direction: column;
-    flex-wrap: wrap;
+    text-align: center;
     padding: 10px;
     background-color: rgb(0, 0, 0);
-    align-items: center;
 }
 
-/*imgaenes de todos los archivos*/
+/*imagenes de todos los archivos*/
 .portada {
     width: 100%;
     height: 725px ; 
@@ -131,7 +126,7 @@ h2 {
     
 }
 
-.articles div a{
+.divindex div a{
     display: inline-block;
     width: 100%;
 
@@ -159,7 +154,6 @@ footer ul li {
     padding: 30px;
 }
 
-/* Terminamos el index */
 
 /* Arrancamos con la pagina de detalle de peliculas */
 
@@ -169,12 +163,6 @@ footer ul li {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
 }
-/*main de deatil series and movie*/
-.maindetail {
-    justify-content: center;
-
-}
-
 
 
 /* div de detail movie and serie y favorite*/
@@ -189,8 +177,6 @@ footer ul li {
     font-size: 20px;
     margin: 0 auto;
 }
-
-
 
 /* pagina genres */
 
