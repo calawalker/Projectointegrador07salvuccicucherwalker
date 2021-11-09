@@ -31,9 +31,9 @@ fetch(url)
             peliculasPopulares.innerHTML += `
 
                 <article class="divindex" >
-                    <a href="./detail-movie.html" class="titulospelicula"> ${datos.results[i].title}</a>
+                    <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
 
-                    <div> <a href="./detail-movie.html"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </a> </div>
+                    <div> <a href="./detail-movie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </a> </div>
 
                     <p>Fecha de Estreno: ${datos.results[i].release_date}</p>
                 </article>  
@@ -49,7 +49,7 @@ fetch(url)
 
 let url2 = (`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`)
 
-let seriesPopulares = document.querySelector(".opciones div")
+let seriesPopulares = document.querySelector(".opciones #series-populares")
 
     fetch(url2)
 
@@ -66,9 +66,9 @@ let seriesPopulares = document.querySelector(".opciones div")
                 seriesPopulares.innerHTML += `
 
                 <article class="divindex">
-                        <a href="./detail-serie.html" class="titulospelicula">${datos.results[i].name}</a>
+                        <a href="./detail-serie.html?id=${datos.results[i].id}" class="titulospelicula">${datos.results[i].name}</a>
                     
-                        <div > <a href="./detail-serie.html"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].name}" class="portada"> </a> </div>
+                        <div > <a href="./detail-serie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].name}" class="portada"> </a> </div>
                     
                         <p>Fecha de Estreno:  ${datos.results[i].first_air_date}</p>
                 </article>
@@ -84,7 +84,7 @@ let seriesPopulares = document.querySelector(".opciones div")
 //peliculas mas valoradas
 let url3 = (`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
 
-let peliculasValoradas = document.querySelector(".opciones div")
+let peliculasValoradas = document.querySelector(".opciones #peliculas-valoradas")
 
     fetch(url3)
 
@@ -101,9 +101,9 @@ let peliculasValoradas = document.querySelector(".opciones div")
                 peliculasValoradas.innerHTML += `
 
                 <article class="divindex" >
-                    <a href="./detail-movie.html" class="titulospelicula"> ${datos.results[i].title}</a>
+                    <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
 
-                    <div> <a href="./detail-movie.html"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </a> </div>
+                    <div> <a href="./detail-movie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </a> </div>
 
                     <p>Fecha de Estreno: ${datos.results[i].release_date}</p>
                 </article>

@@ -9,7 +9,7 @@ const id = queryStringObj.get("id");
 
 let detallesPeliculas = document.querySelector(".maindetail")
 
-fetch(`https://api.themoviedb.org/3/movie/{movie_id}?api_key=${apiKey}`) 
+fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`) 
 
     .then(function(respuesta){
         return respuesta.json()
