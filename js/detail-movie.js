@@ -16,24 +16,22 @@ fetch(urlPelicula)
     })
 
     .then(function(datos){
-        for (let i = 0; i < 0 ; i++){ 
-        console.log(datos.results[i])
 
-    ` 
-    <div class="navdetalles">
-        <h3 class="titulodetallepelicula">${datos.results[i].title}</h3>
-        <div> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </div>
-    </div>
-    <div class="navdetalles">
-        <p>Calificación: ${datos.results[i].vote_average}</p>
-        <p>Fecha de Estreno: ${datos.results[i].release_date}</p> 
-        <p>Duración: ${datos.results[i].runtime}</p>
-        <p> ${datos.results[i].overview}</p>
-        <p>Género: <a href="./detail-genres.html?id=${datos.results[i].id}"> ${datos.results[i].genres}</a></p>
-        <p>Favoritos <i class="icon-star-empty"> </i> </p>
-    </div>
-    `
-    }
+            detallesPeliculas.innerHTML +=
+            ` 
+            <div class="navdetalles">
+                <h3 class="titulodetallepelicula">${datos.title}</h3>
+                <div> <img src="https://image.tmdb.org/t/p/w342/${datos.poster_path}" alt="${datos.title}" class="portada"> </div>
+            </div>
+            <div class="navdetalles">
+                <p>Calificación: ${datos.vote_average}</p>
+                <p>Fecha de Estreno: ${datos.release_date}</p> 
+                <p>Duración: ${datos.runtime}</p>
+                <p> ${datos.overview}</p>
+                <p>Género: <a href="./detail-genres.html?id=${datos.id}"> ${datos.genre_ids}</a></p>
+                <p>Favoritos <i class="icon-star-empty"> </i> </p>
+            </div>
+            `
     })
 
     .catch(function (error) {
