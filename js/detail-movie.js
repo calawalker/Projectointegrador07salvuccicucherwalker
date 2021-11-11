@@ -1,3 +1,4 @@
+
 const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 console.log(location.search)
 
@@ -16,6 +17,7 @@ fetch(urlPelicula)
     })
 
     .then(function(datos){
+        console.log (datos)
 
             detallesPeliculas.innerHTML +=
             ` 
@@ -28,7 +30,7 @@ fetch(urlPelicula)
                 <p>Fecha de Estreno: ${datos.release_date}</p> 
                 <p>Duración: ${datos.runtime}</p>
                 <p> ${datos.overview}</p>
-                <p>Género: <a href="./detail-genres.html?id=${datos.id}"> ${datos.genre_ids}</a></p>
+                <p>Género: <a href="./detail-genres.html?id=${datos.id}"> ${datos.genres[0].name}</a></p>
                 <p>Favoritos <i class="icon-star-empty"> </i> </p>
             </div>
             `
