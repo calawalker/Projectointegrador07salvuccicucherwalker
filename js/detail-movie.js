@@ -10,6 +10,7 @@ let urlPelicula = (`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
 
 let detallesPeliculas = document.querySelector(".maindetail")
 
+
 fetch(urlPelicula) 
 
     .then(function(respuesta){
@@ -18,7 +19,14 @@ fetch(urlPelicula)
 
     .then(function(datos){
         console.log (datos)
+        
+        let listaGeneros = "<p> Géneros:</p>"; 
+        for (let i=0; i=datos.genres.length; i++){
+        listaGeneros += `<p> <a href="./detail-genres.html?id=${datos.genres[i].id}"> ${datos.genres[i].name}</a></p>`
+        }
 
+        console.log(listaGeneros)
+        
             detallesPeliculas.innerHTML +=
             ` 
             <div class="navdetalles">
@@ -30,7 +38,7 @@ fetch(urlPelicula)
                 <p>Fecha de Estreno: ${datos.release_date}</p> 
                 <p>Duración: ${datos.runtime}</p>
                 <p> ${datos.overview}</p>
-                <p>Género: <a href="./detail-genres.html?id=${datos.id}"> ${datos.genres[0].name}</a></p>
+                ${listaGeneros}
                 <p>Favoritos <i class="icon-star-empty"> </i> </p>
             </div>
             `
@@ -39,3 +47,5 @@ fetch(urlPelicula)
     .catch(function (error) {
         console.log('el error fue ' + error);
     });
+
+   
