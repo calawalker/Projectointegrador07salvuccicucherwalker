@@ -21,8 +21,8 @@ fetch(urlPelicula)
         console.log (datos)
         
         let listaGeneros = "<p> Géneros:</p>"; 
-        for (let i=0; i=datos.genres.length; i++){
-        listaGeneros += `<p> <a href="./detail-genres.html?id=${datos.genres[i = id]}"> ${datos.genres[i = "name"]}</a></p>`
+        for (let i=0; i < datos.genres.length; i++){
+        listaGeneros += `<p> <a href="./detail-genres.html?id=${datos.genres[i].id}"> ${datos.genres[i].name} </a></p>`
         }
 
         console.log(listaGeneros)

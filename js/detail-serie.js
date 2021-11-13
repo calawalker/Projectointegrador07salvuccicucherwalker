@@ -19,6 +19,11 @@ fetch(urlSerie)
     .then(function(datos){
         console.log (datos)
 
+        let listaGenerosSerie = "<p> Géneros:</p>"; 
+
+        for (let i=0; i < datos.genres.length; i++){
+        listaGenerosSerie += `<p> <a href="./detail-genres.html?id=${datos.genres[i].id}"> ${datos.genres[i].name} </a></p>`
+        }
             detallesSeries.innerHTML +=
             ` 
             <div class="navdetalles">
@@ -31,7 +36,7 @@ fetch(urlSerie)
                 <p>Temporadas: ${datos.number_of_seasons}</p>
                 <p>Episodios: ${datos.number_of_episodes}</p>
                 <p> ${datos.overview}</p>
-                <p>Género: <a href="./detail-genres.html?id=${datos.id}"> ${datos.genres[0].name}</a></p>
+                ${listaGenerosSerie}
                 <p>Favoritos <i class="icon-star-empty"> </i> </p>
             </div>
             `
