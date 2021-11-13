@@ -15,7 +15,8 @@ fetch(urlGenres)
 
     .then(function(datos){ 
         console.log(datos);
-        for (let i = 0; i <= datos.genres.length; i++){ 
+        for (let i = 0; i < datos.genres.length; i++){ 
+
         
         //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
@@ -46,7 +47,7 @@ fetch(urlGenres2)
 
     .then(function(datos){ 
         console.log(datos);
-        for (let i = 0; i <= datos.genres.length; i++){ 
+        for (let i = 0; i < datos.genres.length; i++){ 
         
         //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
