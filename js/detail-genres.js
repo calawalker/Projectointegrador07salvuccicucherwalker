@@ -6,9 +6,10 @@ const queryStringObj = new URLSearchParams(queryString);
 const id = queryStringObj.get("id");
 let nombreGenero = queryStringObj.get("nombreGenero")
 
+//GENEROS PELICULAS
 let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`)
 
-
+let generoPelicula = document.querySelector(".opciones div")
 
 fetch(urlGeneroPeli)
 .then(function(response){
@@ -20,16 +21,13 @@ fetch(urlGeneroPeli)
 
     //titulo de genero
     let titulo = document.querySelector("h2")
-    nombreGenero = titulo.innerHTML
-
-    let estructuraGenero = ""
-    
+    titulo.innerHTML = nombreGenero;
     
     for (let i = 0; i < datos.results.length; i++){ 
     
     //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
-        estructuraGenero += `
+        generoPelicula.innerHTML += `
             
             <article class="divindex" >
                 <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
@@ -39,9 +37,7 @@ fetch(urlGeneroPeli)
            `
         }
 
-        let generoPelicula = document.querySelector(".opciones div")
-        generoPelicula.innerHTML = estructuraGenero  
-
+        
 })
 .catch(function (error) {
     console.log('el error fue ' + error);
@@ -49,8 +45,39 @@ fetch(urlGeneroPeli)
 
 
 
+//GENERO SERIES
+let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}`)
+let generoSeries = document.querySelector(".opciones div")
 
+fetch(urlGeneroSerie)
+.then(function(response){
+    return response.json()
+})
 
+.then(function(datos){ 
+    console.log(datos);
 
+    let titulo = document.querySelector("h2")
+    titulo.innerHTML = nombreGenero;
+    
+    for (let i = 0; i < datos.results.length; i++){ 
+    
+    //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+
+        generoSeries.innerHTML += `
+            
+        <article class="divindex">
+            <a href="./detail-serie.html?id=${datos.results[i].id}" class="titulospelicula">${datos.results[i].name}</a>
+        
+            <div > <a href="./detail-serie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].name}" class="portada"> </a> </div>
+        </article>
+           `
+        }
+
+        
+})
+.catch(function (error) {
+    console.log('el error fue ' + error);
+})
 
 
