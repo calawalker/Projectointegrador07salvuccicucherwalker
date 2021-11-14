@@ -77,7 +77,7 @@ fetch(urlGeneroPeli)
 
 //GENERO SERIES
 let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}`)
-let generoSeries = document.querySelector(".opciones div")
+let generoSeries = document.querySelector("#seriesjodon div")
 
 fetch(urlGeneroSerie)
 .then(function(response){

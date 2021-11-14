@@ -87,34 +87,34 @@ fetch(urlPelicula)
     
     if (listaFavoritos.includes(id)){
         agregarFav.innerHTML +=
-        ` <button>Quitar de mi playlist</button>
-        <i class="fas fa-heart"></i>`
-        }
+        ` <button> Quitar de Favoritos </button>
+        <i class="icon-star"></i>`
+    }
         
-     agregarFav.addEventListener('click', function(e){
-        e.preventDefault();
-       
+    agregarFav.addEventListener('click', function(e){
+    e.preventDefault();
+    
         if (listaFavoritos.includes(id)){
-           
+            
             let quitarID = listaFavoritos.indexOf(id);
             listaFavoritos.splice(quitarID, 1);
             agregarFav.innerHTML += `
-          <button>Agregar a mi playlist</button>
-          <i class="far fa-heart"></i>`
-          
+            <button>Agregar a favoritos </button>
+            <i class="icon-star-empty"></i>`
+            
             console.log(listaFavoritos)
         }
-    
-       else {
+
+        else {
             listaFavoritos.push(id);
             document.querySelector("#agregarFav").innerHTML +=`
-            <button>Quitar de mi Playlist</button>
-            <i class="fas fa-heart"></i>
+            <button> Quitar de favoritos </button>
+            <i class="icon-star"></i>
             `;
-    
+
         }
         
-        let trackAStorage= JSON.stringify(listaFavoritos);
+        let trackAStorage= json.stringify(listaFavoritos);
         localStorage.setItem('favoritos', trackAStorage);
         console.log(localStorage);
-    })
+        })
