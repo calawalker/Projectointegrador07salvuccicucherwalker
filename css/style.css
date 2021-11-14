@@ -50,7 +50,8 @@ p {
 }
 
 .movie {
-  width: 100px;
+  width: 400px;
+
 
 }
 
@@ -146,13 +147,15 @@ footer{
     background-size: cover;
     color: black;
     font-weight: bold;
+   
 
 }
 
 footer ul {
     display: flex;
     justify-content: center;
-    padding: 15px;    
+    padding: 15px;  
+    width: 100%;  
 }
 
 footer ul li {
