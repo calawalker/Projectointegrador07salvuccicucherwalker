@@ -232,7 +232,10 @@ footer ul li {
     display: none;
 }
 
-
+.mensaje {
+    color: black;
+    background-color: blanchedalmond;
+}
 
 /* Comenzamos con media queries de la pagina index */
 
