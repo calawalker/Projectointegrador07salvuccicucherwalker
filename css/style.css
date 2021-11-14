@@ -49,6 +49,11 @@ p {
      
 }
 
+.movie {
+  width: 100px;
+
+}
+
 .señaladores ul{
     display: flex;
     justify-content: flex-end;
@@ -236,6 +241,7 @@ footer ul li {
     color: black;
     background-color: blanchedalmond;
 }
+
 
 /* Comenzamos con media queries de la pagina index */
 
