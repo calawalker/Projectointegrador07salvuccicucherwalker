@@ -75,20 +75,21 @@ fetch(urlPelicula)
     });
 
     //Boton favoritos
+    let agregarFav = document.querySelector(".agregarFav");
+    
     let listaFavoritos = []
 
     let recuperoStorage = localStorage.getItem('favoritos');
     console.log(recuperoStorage);
     
-    if (recuperoStorage != null){
-        listaFavoritos = json.parse(recuperoStorage);
+    if ( recuperoStorage && recuperoStorage != null){
+        listaFavoritos = JSON.parse(recuperoStorage);
     }
-    let agregarFav = document.querySelector('#agregarFav');
     
     if (listaFavoritos.includes(id)){
-        agregarFav.innerHTML +=
-        ` <button> Quitar de Favoritos </button>
-        <i class="icon-star"></i>`
+        agregarFav.innerHTML =
+        `  <button> Quitar de Favoritos </button>
+        <span> <i class="icon-star"></i> </span>`
     }
         
     agregarFav.addEventListener('click', function(e){
@@ -98,8 +99,8 @@ fetch(urlPelicula)
             
             let quitarID = listaFavoritos.indexOf(id);
             listaFavoritos.splice(quitarID, 1);
-            agregarFav.innerHTML += `
-            <button>Agregar a favoritos </button>
+            agregarFav.innerHTML = `
+            <button> Agregar a favoritos </button>
             <i class="icon-star-empty"></i>`
             
             console.log(listaFavoritos)
@@ -107,14 +108,14 @@ fetch(urlPelicula)
 
         else {
             listaFavoritos.push(id);
-            document.querySelector("#agregarFav").innerHTML +=`
-            <button> Quitar de favoritos </button>
+            agregarFav.innerHTML = `
+            <button> Quitar de Favoritos </button>
             <i class="icon-star"></i>
             `;
 
         }
         
-        let trackAStorage= json.stringify(listaFavoritos);
-        localStorage.setItem('favoritos', trackAStorage);
+        let trackAStorage = json.stringify(listaFavoritos);
+        localStorage.setItem("favoritos", trackAStorage);
         console.log(localStorage);
         })

@@ -32,3 +32,73 @@ input.addEventListener ("focus", function(evento){
    message.innerText = "";
    this.value = "";
 })
+
+//Comenzamos con favoritos
+
+let favoritos = []
+
+if (localStorage.getItem("favoritos")) {
+
+    console.log(localStorage);
+
+let recuperoStorage = localStorage.getItem("favoritos")
+
+favoritos = JSON.parse(recuperoStorage);
+
+console.log(favoritos);
+
+}
+
+const seccion = document.querySelector(".favoritosgeneral")
+
+if( favoritos.length == 0) {
+
+    seccion.innerHTML += `
+    <article>
+        <h3> No hay gif en tu lista de favoritos </h3>
+        <a href="./detail-movie.html"> Volver </a>
+    </article>
+    `
+}
+else{
+
+for (let i = 0; i < favoritos.length; i++) {
+
+    busquedaYmuestraFavoritosMovie (favoritos[i] );
+    busquedaYmuestraFavoritosSerie (favoritos[i]);
+}
+
+}
+function  busquedaYmuestraFavoritosMovie ( id ) {
+
+    let urlFav = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+
+    fetch(urlFav)
+    
+    .then ( function(respuesta){
+        return respuesta.json();
+    })
+    .then ( function (datos) {
+        console.log(datos)
+
+        // let info = datos.
+        // console.log(info);
+    })
+}
+
+function  busquedaYmuestraFavoritosSerie ( ids) {
+
+    let urlFavS = `https://api.themoviedb.org/3/tv/${ids}?api_key=${apiKey}`
+
+    fetch(urlFavS)
+    
+    .then ( function(respuesta){
+        return respuesta.json();
+    })
+    .then ( function (datos) {
+        console.log(datos)
+
+        // let info = datos.
+        // console.log(info);
+    })
+}
