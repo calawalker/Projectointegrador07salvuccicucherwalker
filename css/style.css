@@ -236,9 +236,9 @@ footer ul li {
     padding-left: 10px;
 }
 
-#novisible {
-    display: none;
-}
+/* #novisible {
+    display: none; 
+}*/
 
 .mensaje {
     color: black;

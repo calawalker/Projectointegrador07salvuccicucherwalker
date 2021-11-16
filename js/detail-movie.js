@@ -66,6 +66,13 @@ fetch(urlPelicula)
                 <p>Duración: ${datos.runtime}</p>
                 <p> ${datos.overview}</p>
                 ${listaGeneros}
+                
+                <a class= "agregarFav" href="" title="Agregar a Favoritos">
+                 Agregar a Favoritos 
+                <span> <i class="icon-star"></i> </span> 
+                </a>
+                
+                 <a href="favorite.html" title="favoritos"> Ver Favoritos </a> 
             </div>
             `
     })
