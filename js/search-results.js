@@ -59,7 +59,7 @@ fetch(urlSearch)
                 resultadoBusqueda[1].style.display = "none"
 
 
-            for(let i = 0; i <datos.results.length; i++) {
+            for(let i = 0; i < datos.results.length; i++) {
                 if(datos.results[i].media_type == "movie") {
 
                     fetch (`https://api.themoviedb.org/3/movie/${datos.results[i].id}?api_key=${apiKey}`)
@@ -71,7 +71,7 @@ fetch(urlSearch)
                     .then(function(datosDetalle){
                         console.log(datosDetalle)
                         let generosPelis = ''
-                        for(let i = 0;i < datosDetalle.genres.length;i++){
+                        for(let i = 0 ; i < datosDetalle.genres.length;i++){
                             generosPelis +=  `<p> <a href="./detail-genres.html?id=${datosDetalle.genres[i].id}&nombreGenero=${datosDetalle.genres[i].name}"> ${datosDetalle.genres[i].name} </a></p>`
                         }
                         //console.log(generosPelis);

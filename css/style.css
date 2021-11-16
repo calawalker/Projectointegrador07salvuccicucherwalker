@@ -245,6 +245,9 @@ footer ul li {
     background-color: blanchedalmond;
 }
 
+#mainjodon {
+    height: 500px;
+}
 
 /* Comenzamos con media queries de la pagina index */
 
