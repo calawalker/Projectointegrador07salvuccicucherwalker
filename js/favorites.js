@@ -41,6 +41,9 @@ const queryStringObj = new URLSearchParams(queryString);
 const id = queryStringObj.get("id");
 
 let favoritos = []
+let favoritosSerie = []
+
+// LOCAL STORAGE PELICULAS
 
 if (localStorage.getItem("favoritos")) {
 
@@ -51,42 +54,41 @@ if (localStorage.getItem("favoritos")) {
     favoritos = JSON.parse(recuperoStorage);
 
     console.log(favoritos);
-
 }
 
-const seccion = document.querySelector(".opciones div")
+let seccion = document.querySelector(".opciones div")
 
 if (favoritos.length == 0) {
 
-    seccion.innerHTML += `
+    seccion.innerHTML += 
+    `
     <article>
-        <h3> No hay gif en tu lista de favoritos </h3>
-        <a href="./detail-movie.html"> Volver </a>
+        <h3> No hay peliculas en tu lista de favoritos </h3>
+        <a href="./index.html"> Volver </a>
     </article>
     `
 }
 else {
 
-    for (let i = 0; i < favoritos.length; i++) {
-
+    for (let i = 0; i < favoritos.length; i++) { 
+        
         busquedaYmuestraFavoritosMovie(favoritos[i]);
-        // busquedaYmuestraFavoritosSerie(favoritos[i]);
     }
 
 }
 function busquedaYmuestraFavoritosMovie(id) {
 
-    let urlFav = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+    let urlFavpeli = (`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
 
-    fetch(urlFav)
+    fetch(urlFavpeli)
 
         .then(function (respuesta) {
             return respuesta.json();
         })
         .then(function (datos) {
-             console.log(datos)
+            console.log(datos)
 
-             seccion.innerHTML +=
+            seccion.innerHTML +=
                 `
                 <article class="divindex" >
                      <a href="./detail-movie.html?id=${datos.id}" class="titulospelicula"> ${datos.title}</a>
@@ -95,42 +97,66 @@ function busquedaYmuestraFavoritosMovie(id) {
 
                     <p>Fecha de Estreno: ${datos.release_date}</p>
                 </article> `
-        
-
         })
 }
-            // for (let i = 0; i < favoritos.results; i++) {
 
-            //     seccion.innerHTML +=
-            //         `
-            //    <article class="divindex" >
-            //         <a href="./detail-movie.html?id=${datos[i].id}" class="titulospelicula"> ${datos[i].title}</a>
+// LOCAL STORAGE SERIES
 
-            //         <div> <a href="./detail-movie.html?id=${datos[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos[i].poster_path}" alt="${datos[i].title}" class="portada"> </a> </div>
+if (localStorage.getItem("favoritosSeries")) {
 
-            //         <p>Fecha de Estreno: ${datos[i].release_date}</p>
-            //     </article> `
+    console.log(localStorage);
 
-            // }
+    let recuperoStorageSerie = localStorage.getItem("favoritosSeries")
+
+    favoritosSerie = JSON.parse(recuperoStorageSerie);
+
+    console.log(favoritosSerie);
+}
+
+let serieFav = document.querySelector(".opciones #seriefav")
+
+if (favoritosSerie.length == 0) {
+
+    serieFav.innerHTML += 
+    `
+    <article>
+        <h3> No hay series en tu lista de favoritos </h3>
+        <a href="./index.html"> Volver </a>
+    </article>
+    `
+}
+else {
+
+    for (let i = 0; i < favoritos.length; i++) { 
+        
+        busquedaYmuestraFavoritosSerie(favoritosSerie[i]);
+    }
+
+}
+
+ function busquedaYmuestraFavoritosSerie(id) {
+    let urlFavserie = (`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}`)
+
+    fetch(urlFavserie)
+
+        .then(function (respuesta) {
+            return respuesta.json();
+        })
+        .then(function (datos) {
+            console.log(datos)
+
+            serieFav.innerHTML +=
+                `
+                <article class="divindex" >
+                     <a href="./detail-serie.html?id=${datos.id}" class="titulospelicula"> ${datos.name}</a>
+
+                     <div> <a href="./detail-serie.html?id=${datos.id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.poster_path}" alt="${datos.name}" class="portada"> </a> </div>
+
+                    <p>Fecha de Estreno: ${datos.first_air_date}</p>
+                </article>
+       
+           ` 
 
 
-
-
-
-
-// function busquedaYmuestraFavoritosSerie(ids) {
-
-//     let urlFavS = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}`
-
-//     fetch(urlFavS)
-
-//         .then(function (respuesta) {
-//             return respuesta.json();
-//         })
-//         .then(function (datos) {
-//             console.log(datos)
-
-//             // let info = datos.
-//             // console.log(info);
-//         })
-// }
+         })
+} 

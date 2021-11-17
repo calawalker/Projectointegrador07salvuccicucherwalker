@@ -65,9 +65,61 @@ fetch(urlSerie)
                 <p>Episodios: ${datos.number_of_episodes}</p>
                 <p> ${datos.overview}</p>
                 ${listaGenerosSerie}
-                <p>Favoritos <i class="icon-star-empty"> </i> </p>
+
+                <a class= "agregarFav" href="" title="Agregar a Favoritos">
+                 Agregar a Favoritos 
+                <span> <i class="icon-star-empty"></i> </span> 
+                </a>
+                
+                 <a href="favorite.html" title="favoritos"> Ver Favoritos </a> 
             </div>
             `
+                   //Boton favoritos
+        let agregarFav = document.querySelector(".agregarFav");
+
+        console.log(agregarFav);
+        let listaFavoritos = []
+
+        let recuperoStorage = localStorage.getItem('favoritosSeries');
+        console.log(recuperoStorage);
+
+        if (recuperoStorage && recuperoStorage != null) {
+            listaFavoritos = JSON.parse(recuperoStorage);
+        }
+
+        if (listaFavoritos.includes(id)) {
+            agregarFav.innerHTML =
+                `  <a> Quitar de Favoritos </a>
+            <span> <i class="icon-star"></i> </span>`
+        }
+
+        agregarFav.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (listaFavoritos.includes(id)) {
+
+                let quitarID = listaFavoritos.indexOf(id);
+                listaFavoritos.splice(quitarID, 1);
+                agregarFav.innerHTML = `
+                <a> Agregar a favoritos </a>
+                <i class="icon-star-empty"></i>`
+
+                console.log(listaFavoritos)
+            }
+
+            else {
+                listaFavoritos.push(id);
+                agregarFav.innerHTML = `
+                <a> Quitar de Favoritos </a>
+                <i class="icon-star"></i>
+                `;
+
+            }
+
+            let trackAStorage = JSON.stringify(listaFavoritos);
+            localStorage.setItem("favoritosSeries", trackAStorage);
+            console.log(localStorage);
+        })
     })
 
     .catch(function (error) {
