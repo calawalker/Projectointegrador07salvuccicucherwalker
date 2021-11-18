@@ -37,7 +37,7 @@ const id = queryStringObj.get("id");
 let nombreGenero = queryStringObj.get("nombreGenero")
 
 //GENEROS PELICULAS
-let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}`)
+let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}&type="movie"`)
 
 let generoPelicula = document.querySelector(".opciones div")
 
@@ -76,7 +76,7 @@ fetch(urlGeneroPeli)
 
 
 //GENERO SERIES
-let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}`)
+let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}&type="tv"`)
 let generoSeries = document.querySelector("#seriesjodon div")
 
 fetch(urlGeneroSerie)

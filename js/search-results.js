@@ -1,3 +1,6 @@
+window.addEventListener("load", function(){
+
+document.querySelector("#giphy").style.display = "none";
 const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
  //Formulario del header 
@@ -28,6 +31,7 @@ input.addEventListener ("focus", function(e){
  })
 
  //Search results
+ 
  console.log(location.search)
 
 let queryString = location.search
@@ -118,4 +122,5 @@ fetch(urlSearch)
     })
 .catch(function (error) {
     console.log('el error fue ' + error);
+})
 })

@@ -259,6 +259,12 @@ footer ul li {
     justify-content: space-around;
 }
 
+#giphy {
+    width: 100px;
+    height: auto;
+    align-self: center;
+}
+
 /* Comenzamos con media queries de la pagina index */
 
 @media (min-width: 960px) {

@@ -47,13 +47,13 @@ let favoritosSerie = []
 
 if (localStorage.getItem("favoritos")) {
 
-console.log(localStorage);
+    console.log(localStorage);
 
-let recuperoStorage = localStorage.getItem("favoritos")
+    let recuperoStorage = localStorage.getItem("favoritos")
 
-favoritos = JSON.parse(recuperoStorage);
+    favoritos = JSON.parse(recuperoStorage);
 
-console.log(favoritos);
+    console.log(favoritos);
 }
 
 let seccion = document.querySelector("#peliFav")
