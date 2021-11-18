@@ -245,6 +245,19 @@ footer ul li {
     background-color: blanchedalmond;
 }
 
+#peliFav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#serieFav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 /* Comenzamos con media queries de la pagina index */
 
