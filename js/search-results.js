@@ -3,41 +3,50 @@ window.addEventListener("load", function () {
     document.querySelector("#giphy").style.display = "none";
     const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
-    //Formulario del header 
+//Formulario del header 
 
-    let formulario = document.querySelector("form");
-    let input = document.querySelector(".campoBuscador")
-    let mensaje = document.querySelector(".mensaje")
+//Declaramos variables con sus respectivos Query Selectors 
+let formulario = document.querySelector("form");
+let input = document.querySelector(".campoBuscador")
+let mensaje = document.querySelector(".mensaje")
 
-    formulario.addEventListener(`submit`, function (e) {
-        e.preventDefault();
-        if (input.value == "") {
-            mensaje.innerText = "El campo esta vacio"
-        }
+//Evento de sumbit para el boton del buscador del header
+formulario.addEventListener(`submit`, function (e) {
+    e.preventDefault();
+    if (input.value == "") {
+        mensaje.innerText = "El campo esta vacio"
+    }
 
-        else if (input.value.length < 3) {
-            mensaje.innerText = "Ingresar al menos 3 caracteres"
-        }
-        else {
-            formulario.submit()
-        }
+    else if (input.value.length < 3) {
+        mensaje.innerText = "Ingresar al menos 3 caracteres"
+    }
+    else {
+        formulario.submit()
+    }
 
-    })
+})
 
-    input.addEventListener("focus", function (e) {
-        console.log(e);
-        mensaje.innerText = "";
-        this.value = "";
-    })
+//Evento de focus, para quitar la leyenda de restriccion
+input.addEventListener("focus", function (e) {
+    console.log(e);
+    mensaje.innerText = "";
+    this.value = "";
+})
 
     //Search results
 
     console.log(location.search)
 
+    //Declaramos una variable con el objeto location, que almacena la query
     let queryString = location.search
+
+    //Transformamos la variable anteriormente mencionada para trabajar con parametros utiles
     let queryStringObj = new URLSearchParams(queryString);
+
+    //Con el metodo .get obtenemos el valor de una clave dentro de la QueryString
     let busqueda = queryStringObj.get("Buscador");
 
+    console.log(location.search)
 
     let urlSearch = (`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${busqueda}`)
 
@@ -52,7 +61,7 @@ window.addEventListener("load", function () {
         .then(function (datos) {
             console.log(datos)
 
-
+    //Condicional de search
             if (datos.results.length > 0) {
                 let resultadoBusqueda = document.querySelectorAll(".titulosearch");
 
@@ -62,7 +71,7 @@ window.addEventListener("load", function () {
 
                 resultadoBusqueda[1].style.display = "none"
 
-
+            //comenzamos con search de movie
                 for (let i = 0; i < datos.results.length; i++) {
                     if (datos.results[i].media_type == "movie") {
 

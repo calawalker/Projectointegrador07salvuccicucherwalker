@@ -1,11 +1,14 @@
+window.addEventListener("load", function () {
 const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
 //Formulario del header 
 
+//Declaramos variables con sus respectivos Query Selectors 
 let formulario = document.querySelector("form");
 let input = document.querySelector(".campoBuscador")
 let mensaje = document.querySelector(".mensaje")
 
+//Evento de sumbit para el boton del buscador del header
 formulario.addEventListener(`submit`, function (e) {
     e.preventDefault();
     if (input.value == "") {
@@ -21,6 +24,7 @@ formulario.addEventListener(`submit`, function (e) {
 
 })
 
+//Evento de focus, para quitar la leyenda de restriccion
 input.addEventListener("focus", function (e) {
     console.log(e);
     mensaje.innerText = "";
@@ -125,3 +129,4 @@ fetch(urlSerie)
     .catch(function (error) {
         console.log('el error fue ' + error);
     });
+})

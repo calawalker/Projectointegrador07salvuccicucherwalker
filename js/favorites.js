@@ -1,11 +1,14 @@
+window.addEventListener("load", function () {
 const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
 //Formulario del header 
 
+//Declaramos variables con sus respectivos Query Selectors 
 let formulario = document.querySelector("form");
 let input = document.querySelector(".campoBuscador")
 let mensaje = document.querySelector(".mensaje")
 
+//Evento de sumbit para el boton del buscador del header
 formulario.addEventListener(`submit`, function (e) {
     e.preventDefault();
     if (input.value == "") {
@@ -21,30 +24,21 @@ formulario.addEventListener(`submit`, function (e) {
 
 })
 
+//Evento de focus, para quitar la leyenda de restriccion
 input.addEventListener("focus", function (e) {
     console.log(e);
     mensaje.innerText = "";
     this.value = "";
 })
 
-input.addEventListener("focus", function (evento) {
-    console.log(evento);
-    message.innerText = "";
-    this.value = "";
-})
-
 //Comenzamos con favoritos
 // LOCAL STORAGE PELICULAS
-console.log(location.search)
 
-const queryString = location.search
-const queryStringObj = new URLSearchParams(queryString);
-const id = queryStringObj.get("id");
-
+//Declaramos arrays vacios
 let favoritos = []
 let favoritosSerie = []
 
-
+//Condicional del LocalStorage
 if (localStorage.getItem("favoritos")) {
 
     console.log(localStorage);
@@ -58,6 +52,7 @@ if (localStorage.getItem("favoritos")) {
 
 let seccion = document.querySelector("#peliFav")
 
+//Si no hay favoritos en el Local
 if (favoritos.length == 0) {
 
     seccion.innerHTML +=
@@ -76,6 +71,7 @@ else {
     }
 
 }
+//Hacemos una funcion para Peliculas
 function busquedaYmuestraFavoritosMovie(id) {
 
     let urlFavpeli = (`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
@@ -102,6 +98,7 @@ function busquedaYmuestraFavoritosMovie(id) {
 
 // LOCAL STORAGE SERIES
 
+//Condicional del LocalStorage
 if (localStorage.getItem("favoritosSeries")) {
 
     console.log(localStorage);
@@ -115,6 +112,7 @@ if (localStorage.getItem("favoritosSeries")) {
 
 let serieFav = document.querySelector("#serieFav")
 
+//Si no hay favoritos en el Local
 if (favoritosSerie.length == 0) {
 
     serieFav.innerHTML +=
@@ -134,6 +132,7 @@ else {
 
 }
 
+//Hacemos una funcion para Series
 function busquedaYmuestraFavoritosSerie(id) {
     let urlFavSerie = (`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}`)
 
@@ -160,3 +159,4 @@ function busquedaYmuestraFavoritosSerie(id) {
 
         })
 }
+})
