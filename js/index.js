@@ -1,31 +1,31 @@
 const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
- //Formulario del header 
+//Formulario del header 
 
- let formulario = document.querySelector ("form");
- let input = document.querySelector (".campoBuscador")
- let mensaje = document.querySelector (".mensaje")
+let formulario = document.querySelector("form");
+let input = document.querySelector(".campoBuscador")
+let mensaje = document.querySelector(".mensaje")
 
-formulario.addEventListener(`submit`, function (e){
+formulario.addEventListener(`submit`, function (e) {
     e.preventDefault();
-    if (input.value == ""){
+    if (input.value == "") {
         mensaje.innerText = "El campo esta vacio"
     }
 
-    else if (input.value.length < 3 ){
+    else if (input.value.length < 3) {
         mensaje.innerText = "Ingresar al menos 3 caracteres"
     }
-    else { 
+    else {
         formulario.submit()
     }
-    
+
 })
 
-input.addEventListener ("focus", function(e){
-   console.log(e);
-   mensaje.innerText = "";
-     this.value = "";
- })
+input.addEventListener("focus", function (e) {
+    console.log(e);
+    mensaje.innerText = "";
+    this.value = "";
+})
 
 //Pagina Home del Sitio
 
@@ -36,15 +36,15 @@ let peliculasPopulares = document.querySelector(".opciones div")
 
 fetch(url)
 
-    .then(function(respuesta){
+    .then(function (respuesta) {
         return respuesta.json()
     })
 
-    .then(function(datos){ 
-        for (let i = 0; i <= 4; i++){ 
-        console.log(datos.results[i]);
-        
-        //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+    .then(function (datos) {
+        for (let i = 0; i <= 4; i++) {
+            console.log(datos.results[i]);
+
+            //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
             peliculasPopulares.innerHTML += `
 
@@ -56,7 +56,7 @@ fetch(url)
                     <p>Fecha de Estreno: ${datos.results[i].release_date}</p>
                 </article>  
                `
-    }
+        }
     })
     .catch(function (error) {
         console.log('el error fue ' + error);
@@ -69,19 +69,19 @@ let url2 = (`https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`)
 
 let seriesPopulares = document.querySelector(".opciones #series-populares")
 
-    fetch(url2)
+fetch(url2)
 
-        .then(function(respuesta){
-            return respuesta.json()
-        })
+    .then(function (respuesta) {
+        return respuesta.json()
+    })
 
-        .then(function(datos){ 
-            for (let i = 0; i <= 4; i++){ 
+    .then(function (datos) {
+        for (let i = 0; i <= 4; i++) {
             console.log(datos.results[i]);
-            
+
             //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
-                seriesPopulares.innerHTML += `
+            seriesPopulares.innerHTML += `
 
                 <article class="divindex">
                         <a href="./detail-serie.html?id=${datos.results[i].id}" class="titulospelicula">${datos.results[i].name}</a>
@@ -94,29 +94,29 @@ let seriesPopulares = document.querySelector(".opciones #series-populares")
 
                 `
         }
-        })
-        .catch(function (error) {
-            console.log('el error fue ' + error);
-        })
+    })
+    .catch(function (error) {
+        console.log('el error fue ' + error);
+    })
 
 //peliculas mas valoradas
 let url3 = (`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
 
 let peliculasValoradas = document.querySelector(".opciones #peliculas-valoradas")
 
-    fetch(url3)
+fetch(url3)
 
-        .then(function(respuesta){
-            return respuesta.json()
-        })
+    .then(function (respuesta) {
+        return respuesta.json()
+    })
 
-        .then(function(datos){ 
-            for (let i = 0; i <= 4; i++){ 
+    .then(function (datos) {
+        for (let i = 0; i <= 4; i++) {
             console.log(datos.results[i]);
-            
+
             //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
-                peliculasValoradas.innerHTML += `
+            peliculasValoradas.innerHTML += `
 
                 <article class="divindex" >
                     <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
@@ -127,10 +127,9 @@ let peliculasValoradas = document.querySelector(".opciones #peliculas-valoradas"
                 </article>
                 `
         }
-        })
-        .catch(function (error) {
-            console.log('el error fue ' + error);
-        })
+    })
+    .catch(function (error) {
+        console.log('el error fue ' + error);
+    })
 
 
-   

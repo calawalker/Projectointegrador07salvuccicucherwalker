@@ -2,28 +2,28 @@ const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
 //Formulario del header 
 
-let formulario = document.querySelector ("form");
-let input = document.querySelector (".campoBuscador")
-let mensaje = document.querySelector (".mensaje")
+let formulario = document.querySelector("form");
+let input = document.querySelector(".campoBuscador")
+let mensaje = document.querySelector(".mensaje")
 
-formulario.addEventListener(`submit`, function (e){
-   e.preventDefault();
-   if (input.value == ""){
-       mensaje.innerText = "El campo esta vacio"
-   }
+formulario.addEventListener(`submit`, function (e) {
+    e.preventDefault();
+    if (input.value == "") {
+        mensaje.innerText = "El campo esta vacio"
+    }
 
-   else if (input.value.length < 3 ){
-       mensaje.innerText = "Ingresar al menos 3 caracteres"
-   }
-   else { 
-       formulario.submit()
-   }
-   
+    else if (input.value.length < 3) {
+        mensaje.innerText = "Ingresar al menos 3 caracteres"
+    }
+    else {
+        formulario.submit()
+    }
+
 })
 
-input.addEventListener ("focus", function(e){
-  console.log(e);
-  mensaje.innerText = "";
+input.addEventListener("focus", function (e) {
+    console.log(e);
+    mensaje.innerText = "";
     this.value = "";
 })
 
@@ -42,22 +42,22 @@ let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiK
 let generoPelicula = document.querySelector(".opciones div")
 
 fetch(urlGeneroPeli)
-.then(function(response){
-    return response.json()
-})
+    .then(function (response) {
+        return response.json()
+    })
 
-.then(function(datos){ 
-    console.log(datos);
+    .then(function (datos) {
+        console.log(datos);
 
-    //titulo de genero
-    let titulo = document.querySelector("h2")
-    titulo.innerHTML = nombreGenero;
-    
-    for (let i = 0; i < datos.results.length; i++){ 
-    
-    //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+        //titulo de genero
+        let titulo = document.querySelector("h2")
+        titulo.innerHTML = nombreGenero;
 
-        generoPelicula.innerHTML += `
+        for (let i = 0; i < datos.results.length; i++) {
+
+            //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+
+            generoPelicula.innerHTML += `
             
             <article class="divindex" >
                 <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
@@ -67,11 +67,11 @@ fetch(urlGeneroPeli)
            `
         }
 
-        
-})
-.catch(function (error) {
-    console.log('el error fue ' + error);
-})
+
+    })
+    .catch(function (error) {
+        console.log('el error fue ' + error);
+    })
 
 
 
@@ -80,21 +80,21 @@ let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey
 let generoSeries = document.querySelector("#seriesjodon div")
 
 fetch(urlGeneroSerie)
-.then(function(response){
-    return response.json()
-})
+    .then(function (response) {
+        return response.json()
+    })
 
-.then(function(datos){ 
-    console.log(datos);
+    .then(function (datos) {
+        console.log(datos);
 
-    let titulo = document.querySelector("h2")
-    titulo.innerHTML = nombreGenero;
-    
-    for (let i = 0; i < datos.results.length; i++){ 
-    
-    //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+        let titulo = document.querySelector("h2")
+        titulo.innerHTML = nombreGenero;
 
-        generoSeries.innerHTML += `
+        for (let i = 0; i < datos.results.length; i++) {
+
+            //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+
+            generoSeries.innerHTML += `
             
         <article class="divindex">
             <a href="./detail-serie.html?id=${datos.results[i].id}" class="titulospelicula">${datos.results[i].name}</a>
@@ -104,10 +104,10 @@ fetch(urlGeneroSerie)
            `
         }
 
-        
-})
-.catch(function (error) {
-    console.log('el error fue ' + error);
-})
+
+    })
+    .catch(function (error) {
+        console.log('el error fue ' + error);
+    })
 
 
