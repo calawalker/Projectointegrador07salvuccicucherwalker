@@ -53,7 +53,7 @@ fetch(urlGenres)
         generosPeliculas.innerHTML += `
 
             <article class="colorpeligenre">
-                <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}&type="movie""> <h3>${datos.genres[i].name}</h3> </a>
+                <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}&type=movie"> <h3>${datos.genres[i].name}</h3> </a>
             </article>
                `
         }
@@ -83,7 +83,7 @@ fetch(urlGenres2)
         generosSeries.innerHTML += `
 
             <article class="colorpeligenre">
-                <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}&type="tv""> <h3>${datos.genres[i].name}</h3> </a>
+                <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}&type=tv"> <h3>${datos.genres[i].name}</h3> </a>
             </article>
                `
         }

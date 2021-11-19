@@ -36,11 +36,14 @@ window.addEventListener("load", function () {
     const queryStringObj = new URLSearchParams(queryString);
     const id = queryStringObj.get("id");
     let nombreGenero = queryStringObj.get("nombreGenero")
+    let type = queryStringObj.get("type")
 
     //GENEROS PELICULAS
-    let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}&type="movie"`)
+    let urlGeneroPeli = (`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${id}&type=movie`)
 
     let generoPelicula = document.querySelector(".opciones div")
+
+    if(type == "movie") {
 
     fetch(urlGeneroPeli)
         .then(function (response) {
@@ -68,17 +71,18 @@ window.addEventListener("load", function () {
            `
             }
 
-
         })
         .catch(function (error) {
             console.log('el error fue ' + error);
         })
-
+    }
 
 
     //GENERO SERIES
-    let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}&type="tv"`)
+    let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}&type=tv`)
     let generoSeries = document.querySelector("#seriesjodon div")
+
+    if(type == "tv") {
 
     fetch(urlGeneroSerie)
         .then(function (response) {
@@ -88,6 +92,7 @@ window.addEventListener("load", function () {
         .then(function (datos) {
             console.log(datos);
 
+            //titulo de genero
             let titulo = document.querySelector("h2")
             titulo.innerHTML = nombreGenero;
 
@@ -111,6 +116,6 @@ window.addEventListener("load", function () {
             console.log('el error fue ' + error);
         })
 
-})
-  
+    }
+    })
 

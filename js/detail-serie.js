@@ -54,7 +54,7 @@ fetch(urlSerie)
         let listaGenerosSerie = "<p> Géneros:</p>";
 
         for (let i = 0; i < datos.genres.length; i++) {
-            listaGenerosSerie += `<p> <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}"> ${datos.genres[i].name} </a></p>`
+            listaGenerosSerie += `<p> <a href="./detail-genres.html?id=${datos.genres[i].id}&nombreGenero=${datos.genres[i].name}&type=tv"> ${datos.genres[i].name} </a></p>`
         }
         detallesSeries.innerHTML +=
             ` 

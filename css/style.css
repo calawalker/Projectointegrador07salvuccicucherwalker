@@ -51,8 +51,6 @@ p {
 
 .movie {
   width: 400px;
-
-
 }
 
 .señaladores ul{
@@ -147,7 +145,7 @@ footer{
     background-size: cover;
     color: black;
     font-weight: bold;
-   
+   margin-top: 20px;
 
 }
 
@@ -262,7 +260,19 @@ footer ul li {
 #giphy {
     width: 100px;
     height: auto;
-    align-self: center;
+    align-items: center;
+}
+
+#boton {
+    border-radius: 5px;
+    background-color:blanchedalmond;
+    color: black;
+    font-size: 20px;
+
+}
+
+.agregarFav {
+    padding-bottom: 10px;
 }
 
 /* Comenzamos con media queries de la pagina index */

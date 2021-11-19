@@ -59,7 +59,7 @@ if (favoritos.length == 0) {
         `
     <article>
         <h3> No hay peliculas en tu lista de favoritos </h3>
-        <a href="./index.html"> Volver </a>
+        <a id="boton" href="./index.html"> Volver </a>
     </article>
     `
 }
@@ -119,7 +119,7 @@ if (favoritosSerie.length == 0) {
         `
     <article>
         <h3> No hay series en tu lista de favoritos </h3>
-        <a href="./index.html"> Volver </a>
+        <a id="boton" href="./index.html"> Volver </a>
     </article>
     `
 }

@@ -1,6 +1,5 @@
 window.addEventListener("load", function () {
 
-    document.querySelector("#giphy").style.display = "none";
     const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
 //Formulario del header 
@@ -59,6 +58,7 @@ input.addEventListener("focus", function (e) {
         })
 
         .then(function (datos) {
+            document.querySelector("#giphy").style.display = "none";
             console.log(datos)
 
     //Condicional de search
