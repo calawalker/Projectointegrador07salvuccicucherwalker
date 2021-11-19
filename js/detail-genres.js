@@ -43,25 +43,25 @@ window.addEventListener("load", function () {
 
     let generoPelicula = document.querySelector(".opciones div")
 
-    if(type == "movie") {
+    if (type == "movie") {
 
-    fetch(urlGeneroPeli)
-        .then(function (response) {
-            return response.json()
-        })
+        fetch(urlGeneroPeli)
+            .then(function (response) {
+                return response.json()
+            })
 
-        .then(function (datos) {
-            console.log(datos);
+            .then(function (datos) {
+                console.log(datos);
 
-            //titulo de genero
-            let titulo = document.querySelector("h2")
-            titulo.innerHTML = nombreGenero;
+                //titulo de genero
+                let titulo = document.querySelector("h2")
+                titulo.innerHTML = nombreGenero;
 
-            for (let i = 0; i < datos.results.length; i++) {
+                for (let i = 0; i < datos.results.length; i++) {
 
-                //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+                    //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
-                generoPelicula.innerHTML += `
+                    generoPelicula.innerHTML += `
             
             <article class="divindex" >
                 <a href="./detail-movie.html?id=${datos.results[i].id}" class="titulospelicula"> ${datos.results[i].title}</a>
@@ -69,12 +69,12 @@ window.addEventListener("load", function () {
                 <div> <a href="./detail-movie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].title}" class="portada"> </a> </div>
             </article>  
            `
-            }
+                }
 
-        })
-        .catch(function (error) {
-            console.log('el error fue ' + error);
-        })
+            })
+            .catch(function (error) {
+                console.log('el error fue ' + error);
+            })
     }
 
 
@@ -82,25 +82,25 @@ window.addEventListener("load", function () {
     let urlGeneroSerie = (`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${id}&type=tv`)
     let generoSeries = document.querySelector("#seriesjodon div")
 
-    if(type == "tv") {
+    if (type == "tv") {
 
-    fetch(urlGeneroSerie)
-        .then(function (response) {
-            return response.json()
-        })
+        fetch(urlGeneroSerie)
+            .then(function (response) {
+                return response.json()
+            })
 
-        .then(function (datos) {
-            console.log(datos);
+            .then(function (datos) {
+                console.log(datos);
 
-            //titulo de genero
-            let titulo = document.querySelector("h2")
-            titulo.innerHTML = nombreGenero;
+                //titulo de genero
+                let titulo = document.querySelector("h2")
+                titulo.innerHTML = nombreGenero;
 
-            for (let i = 0; i < datos.results.length; i++) {
+                for (let i = 0; i < datos.results.length; i++) {
 
-                //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
+                    //Comenzamos con la estructura de nuestra pagina a partir de innerHTML
 
-                generoSeries.innerHTML += `
+                    generoSeries.innerHTML += `
             
         <article class="divindex">
             <a href="./detail-serie.html?id=${datos.results[i].id}" class="titulospelicula">${datos.results[i].name}</a>
@@ -108,14 +108,14 @@ window.addEventListener("load", function () {
             <div > <a href="./detail-serie.html?id=${datos.results[i].id}"> <img src="https://image.tmdb.org/t/p/w342/${datos.results[i].poster_path}" alt="${datos.results[i].name}" class="portada"> </a> </div>
         </article>
            `
-            }
+                }
 
 
-        })
-        .catch(function (error) {
-            console.log('el error fue ' + error);
-        })
+            })
+            .catch(function (error) {
+                console.log('el error fue ' + error);
+            })
 
     }
-    })
+})
 

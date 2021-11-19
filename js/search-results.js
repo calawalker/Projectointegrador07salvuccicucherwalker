@@ -2,35 +2,35 @@ window.addEventListener("load", function () {
 
     const apiKey = "b8b7f0a177fd64911123a0d6c5c6618b";
 
-//Formulario del header 
+    //Formulario del header 
 
-//Declaramos variables con sus respectivos Query Selectors 
-let formulario = document.querySelector("form");
-let input = document.querySelector(".campoBuscador")
-let mensaje = document.querySelector(".mensaje")
+    //Declaramos variables con sus respectivos Query Selectors 
+    let formulario = document.querySelector("form");
+    let input = document.querySelector(".campoBuscador")
+    let mensaje = document.querySelector(".mensaje")
 
-//Evento de sumbit para el boton del buscador del header
-formulario.addEventListener(`submit`, function (e) {
-    e.preventDefault();
-    if (input.value == "") {
-        mensaje.innerText = "El campo esta vacio"
-    }
+    //Evento de sumbit para el boton del buscador del header
+    formulario.addEventListener(`submit`, function (e) {
+        e.preventDefault();
+        if (input.value == "") {
+            mensaje.innerText = "El campo esta vacio"
+        }
 
-    else if (input.value.length < 3) {
-        mensaje.innerText = "Ingresar al menos 3 caracteres"
-    }
-    else {
-        formulario.submit()
-    }
+        else if (input.value.length < 3) {
+            mensaje.innerText = "Ingresar al menos 3 caracteres"
+        }
+        else {
+            formulario.submit()
+        }
 
-})
+    })
 
-//Evento de focus, para quitar la leyenda de restriccion
-input.addEventListener("focus", function (e) {
-    console.log(e);
-    mensaje.innerText = "";
-    this.value = "";
-})
+    //Evento de focus, para quitar la leyenda de restriccion
+    input.addEventListener("focus", function (e) {
+        console.log(e);
+        mensaje.innerText = "";
+        this.value = "";
+    })
 
     //Search results
 
@@ -58,10 +58,11 @@ input.addEventListener("focus", function (e) {
         })
 
         .then(function (datos) {
+            //spinner de search
             document.querySelector("#giphy").style.display = "none";
             console.log(datos)
 
-    //Condicional de search
+            //Condicional de search
             if (datos.results.length > 0) {
                 let resultadoBusqueda = document.querySelectorAll(".titulosearch");
 
@@ -71,7 +72,7 @@ input.addEventListener("focus", function (e) {
 
                 resultadoBusqueda[1].style.display = "none"
 
-            //comenzamos con search de movie
+                //comenzamos con search de movie
                 for (let i = 0; i < datos.results.length; i++) {
                     if (datos.results[i].media_type == "movie") {
 
